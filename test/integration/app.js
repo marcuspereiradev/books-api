@@ -26,4 +26,37 @@ describe('Routes Books', () => {
         });
     });
   });
+
+  describe('Route GET /books/{id}', () => {
+    it('should return a book', done => {
+      request
+        .get('/books/1')
+        .end((err, res) => {
+          expect(res.body.id).to.be.eql(defaultBook.id);
+          expect(res.body.name).to.be.eql(defaultBook.name);
+          done(err);
+        });
+    });
+  });
+
+  describe('Route POST /books', function () {
+    this.timeout(500);
+    it('should create a book', function (done) {
+      setTimeout(done, 300);
+
+      const newBook = {
+        id: 2,
+        name: 'New Book'
+      };
+
+      request
+        .post('/books')
+        .send(newBook)
+        .end((err, res) => {
+          expect(res.body.id).to.be.eql(newBook.id);
+          expect(res.body.name).to.be.eql(newBook.name);
+          done(err);
+        });
+    });
+  });
 });
