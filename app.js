@@ -28,4 +28,10 @@ app.post('/books', (req, res) => {
     .catch(err => res.status(412));
 });
 
+app.put('/books/:id', (req, res) => {
+  Books.update(req.boby, { where: req.params })
+    .then(result => res.json(result))
+    .catch(err => res.status(412));
+});
+
 export default app;

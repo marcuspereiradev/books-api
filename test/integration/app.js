@@ -59,4 +59,21 @@ describe('Routes Books', () => {
         });
     });
   });
+
+  describe('Route PUT /books/{id}', function () {
+    it('should update a book', function (done) {
+      const updatedBook = {
+        id: 1,
+        name: 'Updated Book'
+      };
+
+      request
+        .put('/books/1')
+        .send(updatedBook)
+        .end((err, res) => {
+          expect(res.body).to.be.eql([0]);
+          done(err);
+        });
+    });
+  });
 });
