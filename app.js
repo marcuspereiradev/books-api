@@ -34,4 +34,10 @@ app.put('/books/:id', (req, res) => {
     .catch(err => res.status(412));
 });
 
+app.delete('/books/:id', (req, res) => {
+  Books.destroy({ where: req.params })
+    .then(result => res.sendStatus(204))
+    .catch(err => res.status(412));
+});
+
 export default app;

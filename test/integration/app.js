@@ -76,4 +76,15 @@ describe('Routes Books', () => {
         });
     });
   });
+
+  describe('Route DELETE /books/{id}', function () {
+    it('should delete a book', function (done) {
+      request
+        .delete('/books/1')
+        .end((err, res) => {
+          expect(res.statusCode).to.be.eql(204);
+          done(err);
+        });
+    });
+  });
 });
