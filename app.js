@@ -23,7 +23,7 @@ app.get('/books/:id', (req, res) => {
 });
 
 app.post('/books', (req, res) => {
-  Books.create({ where: req.body })
+  Books.create(req.body)
     .then((result) => res.json(result))
     .catch(() => res.status(412));
 });

@@ -39,11 +39,8 @@ describe('Routes Books', () => {
     });
   });
 
-  describe('Route POST /books', function () {
-    this.timeout(500);
+  describe('Route POST /books', () => {
     it('should create a book', (done) => {
-      setTimeout(done, 300);
-
       const newBook = {
         id: 2,
         name: 'New Book',
