@@ -14,7 +14,13 @@ class BooksController {
   getAll() {
     return this.Books.findAll({})
       .then((result) => defaultResponse(result))
-      .catch(error => errorResponse(error.message));
+      .catch((error) => errorResponse(error.message));
+  }
+
+  getById(params) {
+    return this.Books.findOne({ where: params })
+      .then((result) => defaultResponse(result))
+      .catch((error) => errorResponse(error.message));
   }
 }
 

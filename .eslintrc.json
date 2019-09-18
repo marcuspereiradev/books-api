@@ -12,7 +12,8 @@
 		"beforeEach": true,
 		"it": true,
 		"request": true,
-		"expect": true
+		"expect": true,
+		"td": true
 	},
 	"parserOptions": {
 		"ecmaVersion": 2018,
