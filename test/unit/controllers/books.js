@@ -66,8 +66,34 @@ describe('Controllers: Book', () => {
       return booksController.create(requestBody)
         .then(response => {
           expect(response.statusCode).to.be.eql(201);
-          expect(response.data).to.be.eql(expectedResponse)
+          expect(response.data).to.be.eql(expectedResponse);
         });
+    });
+  });
+
+  describe('Update a book: update()', () => {
+    it('should update a book', () => {
+      const Books = {
+        update: td.function()
+      };
+
+      const expectedResponse = [{
+        id: 1,
+        name: 'Test Book Updated',
+        created_at: '2019-09-16T15:05:36.6922',
+        updated_at: '2019-09-16T15:05:36.6922',
+      }];
+
+      const requestBody = {
+        id: 1,
+        name: 'Test Book Updated'
+      };
+
+      td.when(Books.update(requestBody, { where: { id: 1 } })).thenResolve(expectedResponse);
+
+      const booksController = new BooksController(Books);
+      return booksController.update(requestBody, { id: 1 })
+        .then(response => expect(response.data).to.be.eql(expectedResponse));
     });
   });
 });

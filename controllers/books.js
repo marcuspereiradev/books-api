@@ -28,6 +28,12 @@ class BooksController {
       .then((result) => defaultResponse(result, 201))
       .catch((error) => errorResponse(error.message, 422));
   }
+
+  update(data, params) {
+    return this.Books.update(data, { where: params })
+      .then((result) => defaultResponse(result))
+      .catch((error) => errorResponse(error.message, 422));
+  }
 }
 
 export default BooksController;
