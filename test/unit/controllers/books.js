@@ -64,7 +64,10 @@ describe('Controllers: Book', () => {
 
       const booksController = new BooksController(Books);
       return booksController.create(requestBody)
-        .then(response => expect(response.data).to.be.eql(expectedResponse));
+        .then(response => {
+          expect(response.statusCode).to.be.eql(201);
+          expect(response.data).to.be.eql(expectedResponse)
+        });
     });
   });
 });
