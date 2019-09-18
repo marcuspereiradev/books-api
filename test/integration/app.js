@@ -68,7 +68,7 @@ describe('Routes Books', () => {
         .put('/books/1')
         .send(updatedBook)
         .end((err, res) => {
-          expect(res.body).to.be.eql([0]);
+          expect(res.body).to.be.eql([1]);
           done(err);
         });
     });
