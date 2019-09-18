@@ -34,6 +34,12 @@ class BooksController {
       .then((result) => defaultResponse(result))
       .catch((error) => errorResponse(error.message, 422));
   }
+
+  delete(params) {
+    return this.Books.destroy({ where: params })
+      .then((result) => defaultResponse(result, 204))
+      .catch((error) => errorResponse(error.message, 422));
+  }
 }
 
 export default BooksController;
