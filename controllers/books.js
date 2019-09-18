@@ -22,6 +22,12 @@ class BooksController {
       .then((result) => defaultResponse(result))
       .catch((error) => errorResponse(error.message));
   }
+
+  create(data) {
+    return this.Books.create(data)
+      .then((result) => defaultResponse(result, 201))
+      .catch((error) => errorResponse(error.message, 422));
+  }
 }
 
 export default BooksController;
