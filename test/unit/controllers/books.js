@@ -22,7 +22,7 @@ describe('Controllers: Book', () => {
     });
   });
 
-  describe('Get book by id: getById  ()', () => {
+  describe('Get book by id: getById()', () => {
     it('should return a books', () => {
       const Books = {
         findOne: td.function()
