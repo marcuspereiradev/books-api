@@ -44,7 +44,7 @@ describe('Controllers: Book', () => {
   });
 
   describe('Create a book: create()', () => {
-    it('should return a list of books', () => {
+    it('should create a book', () => {
       const Books = {
         create: td.function()
       };
